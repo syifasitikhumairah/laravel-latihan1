@@ -137,4 +137,56 @@ Route::get('pesan/{makan?}/{minum?}/{cemilan?}', function ($makan = null, $minum
     return $pesan;
 });
 
+//Route Bagian DB Seeder
+// Model Post
 
+//1. Mencari semua model :
+Route::get('/testmodel1', function() {
+    $query = App\Models\Post::all();
+    return $query;
+    });
+
+//2. Mencari model berdasarkan id :
+Route::get('/testmodel2/{id}', function($id) {
+    $query = App\Models\Post::findOrFail($id) ;
+    return $query;
+    });
+
+//3. Mencari model berdasarkan title :
+Route::get('/testmodel3', function() {
+    $query = App\Models\Post::where('title','like','%Juz Amma%')->get();
+    return $query;
+    });
+
+//4. Mengubah record, (hapus semua isi function) :
+Route::get('/testmodel4', function() {
+    $post = App\Models\Post::find(1);
+    $post->title = "Ciri Keluarga Sakinah";
+    $post->save();
+    return $post;
+    });
+
+//5. Menghapus record, (hapus semua isi function) :
+Route::get('/testmodel5', function() {
+    $post = App\Models\Post::find(1)->delete();
+    return $post;
+    });
+
+//6. Menambah record, (hapus semua isi function) :
+Route::get('/testmodel6', function() {
+    $post = new App\Models\Post();
+    $post->title = "7 Amalan Pembuka Jodoh";
+    $post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
+    $post->save();
+    return $post;
+    });
+
+Route::get('/test-post', function() {
+    $query = App\Models\Post::all();
+    return view('test-post', compact('query'));
+});
+
+Route::get('/dosen', function() {
+    $query = App\Models\Dosen::all();
+    return view('dosen', compact('query'));
+});

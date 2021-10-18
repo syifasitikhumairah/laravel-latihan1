@@ -13,7 +13,7 @@ class CreateDosensTable extends Migration
      */
     public function up()
     {
-        Schema::create('_dosens', function (Blueprint $table) {
+        Schema::create('dosens', function (Blueprint $table) {
             $table->id();
             $table->integer('nipd')->unique();
             $table->string('nama');
@@ -29,6 +29,6 @@ class CreateDosensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_dosens');
+        Schema::dropIfExists('dosens');
     }
 }

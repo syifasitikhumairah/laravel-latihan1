@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -190,3 +191,12 @@ Route::get('/dosen', function() {
     $query = App\Models\Dosen::all();
     return view('dosen', compact('query'));
 });
+
+Route::get('/mhs', function() {
+    $query = App\Models\Mahasiswas::all();
+    return view('mhs', compact('query'));
+});
+
+// route controller
+Route::get('test-controller', [MyController::class, 'test']);
+Route::get('hero', [MyController::class, 'heroes']);

@@ -200,3 +200,10 @@ Route::get('/mhs', function() {
 // route controller
 Route::get('test-controller', [MyController::class, 'test']);
 Route::get('hero', [MyController::class, 'heroes']);
+
+// route controller Latihan skema db
+Route::get('barang', [MyController::class, 'barangs']);
+Route::get('pesanan', [MyController::class, 'pesanans']);
+Route::get('pembelian', [MyController::class, 'pembelians']);
+Route::get('pembeli', [MyController::class, 'pembelis']);
+Route::get('suplier', [MyController::class, 'supliers']);
